@@ -1,0 +1,45 @@
+/* จัดการกลุ่มเมนูให้เรียงต่อกัน */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap; /* ให้เมนูขึ้นบรรทัดใหม่ถ้าหน้าจอแคบ */
+    gap: 20px;       /* ระยะห่างระหว่างเมนู */
+    justify-content: flex-start; /* เรียงจากซ้ายไปขวา */
+    margin-top: 20px;
+}
+
+/* สไตล์ของแต่ละเมนู (Card) */
+.menu-card {
+    background: #ffffff;
+    border-radius: 15px;      /* ขอบมน */
+    padding: 20px;
+    width: 200px;             /* กำหนดความกว้างให้เท่ากันทุกอัน */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* เพิ่มเงาให้นุ่มนวล */
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px); /* เวลาวางเมาส์ให้ลอยขึ้นเล็กน้อย */
+}
+
+.menu-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-card img {
+    width: 60px;              /* ขนาดไอคอน */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.menu-card h3 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.menu-card p {
+    font-size: 0.85rem;
+    color: #666;
+}

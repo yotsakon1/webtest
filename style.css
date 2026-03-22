@@ -1,0 +1,19 @@
+/* ตัวอย่าง Class ที่ใช้คุมหน้าตาเมนูทั้งหมด */
+.card-menu {
+    background: #fff;
+    border-radius: 20px;       /* ทำขอบมน */
+    padding: 30px;
+    text-align: center;        /* จัดไอคอนและข้อความให้อยู่ตรงกลาง */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* เพิ่มเงาให้นุ่มนวล */
+    border: 1px solid #eee;    /* เส้นขอบบาง ๆ */
+    transition: 0.3s;
+}
+
+.card-menu:hover {
+    transform: translateY(-5px); /* เวลาเอาเมาส์วางให้ Card ลอยขึ้น */
+}
+
+.menu-icon {
+    width: 80px;               /* ปรับขนาดไอคอนให้เท่ากันทุกอัน */
+    margin-bottom: 15px;
+}
