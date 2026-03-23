@@ -1,5 +1,9 @@
-<?php if(!isset($_SESSION['user'])) header("Location: login.php"); ?>
-
+<?php 
+if(!isset($_SESSION['user'])){
+    header("Location: login.php");
+    exit(); 
+}
+?>
 <style>
 .sidebar {
     width: 250px;

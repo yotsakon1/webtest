@@ -10,8 +10,19 @@
 </form>
 
 <?php
+// --- เปลี่ยนเป็นแบบนี้ ---
 $key = $_GET['search'] ?? '';
-$res = $conn->query("SELECT * FROM students WHERE name LIKE '%$key%'");
+$search_param = "%$key%";
+
+$stmt = $conn->prepare("SELECT * FROM students WHERE name LIKE ?");
+$stmt->bind_param("s", $search_param);
+$stmt->execute();
+$res = $stmt->get_result();
+
+while($row = $res->fetch_assoc()){
+    echo htmlspecialchars($row['name']) . " " . htmlspecialchars($row['surname']) . "<br>";
+}
+$stmt->close();
 
 while($row = $res->fetch_assoc()){
 echo "$row[name] $row[surname]<br>";

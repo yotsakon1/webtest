@@ -14,9 +14,11 @@
 
 <?php
 if(isset($_POST['save'])){
-    $conn->query("INSERT INTO news(title,content) VALUES('$_POST[title]','$_POST[content]')");
+    $stmt = $conn->prepare("INSERT INTO news (title, content) VALUES (?, ?)");
+    $stmt->bind_param("ss", $_POST['title'], $_POST['content']); // "ss" หมายถึงส่งค่า string 2 ตัว
+    $stmt->execute();
+    $stmt->close();
 }
-?>
 
 <hr>
 
@@ -31,9 +33,13 @@ echo "<div class='card p-3 mb-2'>
 }
 
 if(isset($_GET['del'])){
-    $conn->query("DELETE FROM news WHERE id=$_GET[del]");
+    $stmt = $conn->prepare("DELETE FROM news WHERE id = ?");
+    $stmt->bind_param("i", $_GET['del']); // "i" หมายถึงส่งค่าเลขจำนวนเต็ม (integer)
+    $stmt->execute();
+    $stmt->close();
+    
     header("Location: news.php");
+    exit(); 
 }
-?>
 
 </div>
